@@ -8,9 +8,11 @@ import asyncio
 #Variables START
 bot = discord.Client()
 prefix = commands.Bot(command_prefix = "A-")
-botversion = "vBETA"
-botid = "Your ID Here"
+botversion = "vBETA-2 GitHubRelease"
+botid = "471639801314148362"
 owner = "Alej0hio"
+botinfo = discord.AppInfo
+ownerID = "315843700490240002"
 #Variables END
 
 #Events START
@@ -20,11 +22,12 @@ async def on_ready():
     print (botid)
     print ("Alej0hio")
 
-
 @bot.event
-async def on_message(message):
-    if message.content == "@everyone":
-     await bot.send_message(message.channel, "I do not like to be pinged :angry: :b:anned")
+async def on_error():
+    print("Whoops, an error accoured! Please report this on the github page.")
+
+
+    
 
 @bot.event
 async def on_message(message):
@@ -48,12 +51,17 @@ async def on_message(message):
         await bot.send_message(message.channel,"Very cool guy")
     if message.content.upper().startswith('A-LARSENV'):
         await bot.send_message(message.channel,"Guy who works for https://rc24.xyz , https://mariocube.xyz , is admin of https://wiki.mariocube.xyz. Very cool dude indeed.")
-
-    
-
+    if message.content.upper().startswith('A-OSC'):
+        await bot.send_message(message.channel,"Can we not use soap we should use shampoo!")
+    if message.content.upper().startswith('A-RC24'):
+        await bot.send_message(message.channel,"cmOC wHeN?????+++?????111!1!!!!!")
+    if message.content.upper().startswith('A-FUNNY'):
+        await bot.send_message(message.channel,"Oh my god when he falled I threw up my coke :laughing: https://cdn.discordapp.com/attachments/426478571389976581/471963769707167754/ohaio.gif")
+    if message.content.upper().startswith('A-INFO'):
+        await bot.send_message(message.channel, )  
 #Events END
 
 
 
 #most important part 
-bot.run("You really think i was gonna put my token here? ")
+bot.run("put in your discord bots token here.")
