@@ -8,11 +8,12 @@ import asyncio
 #Variables START
 bot = discord.Client()
 prefix = commands.Bot(command_prefix = "A-")
-botversion = "vBETA-2 GitHubRelease"
+botversion = "vBETA-4 GithubRelease"
 botid = "471639801314148362"
 owner = "Alej0hio"
 botinfo = discord.AppInfo
 ownerID = "315843700490240002"
+error = bot.on_error()
 #Variables END
 
 #Events START
@@ -23,20 +24,9 @@ async def on_ready():
     print ("Alej0hio")
 
 @bot.event
-async def on_error():
-    print("Whoops, an error accoured! Please report this on the github page.")
-
-
-    
-
-@bot.event
 async def on_message(message):
     if message.content.upper().startswith('A-PING'):
-        userID = message.author.id
-        await bot.send_message(message.channel, "Pong!")  
-    if message.content.upper().startswith('A-SAY'):
-          args = message.content.split (" ")
-          await bot.send_message(message.channel, "%s" % (args[1:])) 
+        await bot.send_message("Pong!" + bot.ping)
     if message.content.upper().startswith('A-VERSION'):
         await bot.send_message(message.channel, botversion)
     if message.content.upper().startswith('A-CREDIT'):
@@ -58,10 +48,22 @@ async def on_message(message):
     if message.content.upper().startswith('A-FUNNY'):
         await bot.send_message(message.channel,"Oh my god when he falled I threw up my coke :laughing: https://cdn.discordapp.com/attachments/426478571389976581/471963769707167754/ohaio.gif")
     if message.content.upper().startswith('A-INFO'):
-        await bot.send_message(message.channel, )  
+        await bot.send_message(message.channel, "Alej0hibot is made by @Alej0hio#5306, its written in Python, uses discord.py by Rapptz and is open source. https://github.com/Alej0hio/Alej0hibot")
+    if message.content.upper().startswith('A-SOURCE'):
+        await bot.send_message(message.channel, "I love open sauce! https://github.com/Alej0hio/Alej0hibot ~~worst bot ever~~")
+    if message.content.upper().startswith('A-HELP'):
+       await bot.send_message(message.channel, "So you need help? https://alej0hibot.norment.org and https://discord.gg/gD2Mfx6 can help you.")
+    if message.content.upper().startswith('ALEJ'):
+        userID = bot.member.id
+        await bot.kick(userID) 
+    if message.content.upper().startswith('A-POLL'):
+        mesID = message.id
+        await bot.add_reaction(message, "👍")
+        await bot.add_reaction(message, "👎")
+        await bot.add_reaction(message, "🤷")
 #Events END
 
 
 
 #most important part 
-bot.run("put in your discord bots token here.")
+bot.run("TOKEN")
