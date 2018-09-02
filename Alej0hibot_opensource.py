@@ -55,7 +55,7 @@ async def on_message(message):
        await bot.send_message(message.channel, "So you need help? https://alej0hibot.norment.org and https://discord.gg/gD2Mfx6 can help you.")
     if message.content.upper().startswith('ALEJ'):
         userID = bot.member.id
-        await bot.kick(userID) 
+        await bot.kick(message.author) 
     if message.content.upper().startswith('A-POLL'):
         mesID = message.id
         await bot.add_reaction(message, "👍")
